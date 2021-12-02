@@ -82,7 +82,18 @@ public class Main {
             }
             System.out.println();
         }
-
         
+        // Seuillage
+        int seuil = 100;
+        for (int row = 0; row < picHeight; row++) {
+            for (int col = 0; col < picWidth; col++) {
+                if (image[row][col] > seuil) {
+                    image[row][col] = 1;
+                } else {
+                    image[row][col] = 0;
+                }
+            }
+            System.out.println();
+        }
     }
 }
