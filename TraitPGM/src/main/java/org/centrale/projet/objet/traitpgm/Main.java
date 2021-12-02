@@ -41,7 +41,6 @@ public class Main {
         String line = br.readLine();
 
         // Histogram
-        
         int[] pixles = new int[256];
         while(line !=null){
             StringTokenizer st = new StringTokenizer(line, " ");
@@ -57,6 +56,33 @@ public class Main {
            System.out.print(pixles[i]);
        }
         
+        // Reading image
+        int[][] image = new int[picHeight][picWidth];
+        int i = 1;
+        int j = 0;
+        while (line != null) {
+            if (j == picWidth) {
+                j = 0;
+                i++;
+            }
+            StringTokenizer st = new StringTokenizer(line, " ");
+            while (st.hasMoreTokens()) {
+                int pixel = Integer.parseInt(st.nextToken());
+                System.out.println(pixel);
+                image[i - 1][j] = pixel;
+                j++;
+            }
+            line = br.readLine();
+        }
 
+        // Affichage de l'image
+        for (int row = 0; row < picHeight; row++) {
+            for (int col = 0; col < picWidth; col++) {
+                System.out.print(image[row][col] + "  ");
+            }
+            System.out.println();
+        }
+
+        
     }
 }
