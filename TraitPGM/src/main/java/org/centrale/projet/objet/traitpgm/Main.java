@@ -19,22 +19,29 @@ import java.util.StringTokenizer;
 public class Main {
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
-
+        
+        // l'image à lire
         String filePath = "brain.pgm";
+        
+        // Buffer Object
         Reader reader = new FileReader(filePath);
         BufferedReader br = new BufferedReader(reader);
-
+        
+        // Lignes non utiles
         br.readLine();
         br.readLine();
         
+        // Initialisation du Tokenizer
         StringTokenizer sta = new StringTokenizer(br.readLine(), " ");
         
-        int picWidth = Integer.parseInt(sta.nextToken());
-        int picHeight = Integer.parseInt(sta.nextToken());
+        // Les constantes de l'image
+        int picWidth = Integer.parseInt(sta.nextToken()); // 720
+        int picHeight = Integer.parseInt(sta.nextToken()); // 486
         int maxvalue = Integer.parseInt(br.readLine());
         String line = br.readLine();
-        
+
         // Histogram
+        
         int[] pixles = new int[256];
         while(line !=null){
             StringTokenizer st = new StringTokenizer(line, " ");
@@ -45,11 +52,11 @@ public class Main {
             line = br.readLine();
         }
         
-//        for(int i=0;i<255;i++){
-//            System.out.print(pixles[i]);
-//        }
-             
-
+        // Affichage de l'histograme des valeurs
+       for(int i=0;i<255;i++){
+           System.out.print(pixles[i]);
+       }
+        
 
     }
 }
